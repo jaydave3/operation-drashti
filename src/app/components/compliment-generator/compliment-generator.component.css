@@ -1,0 +1,98 @@
+.compliment-section {
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-head .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.compliment-card {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 5vw, 3rem);
+  box-shadow: 0 16px 36px rgba(255, 133, 162, 0.12), 0 4px 12px rgba(0, 0, 0, 0.02);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-decor-seal {
+  font-size: 2.8rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  animation: pulseSoft 3s ease-in-out infinite;
+}
+
+.card-header-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--color-blush-light);
+  color: var(--color-blush-dark);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.batch-num {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.compliment-quote-box {
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.compliment-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+  line-height: 1.55;
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.compliment-btn {
+  font-size: 1.02rem;
+  padding: 0.85rem 1.6rem;
+}
+
+.copy-btn {
+  font-size: 0.92rem;
+  padding: 0.8rem 1.25rem;
+}
+
+.friendly-disclaimer {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  font-style: italic;
+  line-height: 1.4;
+}

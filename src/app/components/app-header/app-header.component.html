@@ -1,0 +1,81 @@
+<header class="app-header" role="banner">
+  <div class="container header-container">
+    <a (click)="scrollToSection('home')" class="brand" role="button" tabindex="0" (keydown.enter)="scrollToSection('home')">
+      <span class="brand-heart" aria-hidden="true">💗</span>
+      <span class="brand-text">Operation Drashti</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="desktop-nav" aria-label="Main Navigation">
+      <button type="button" class="nav-link" (click)="scrollToSection('smile-kit')">
+        <span aria-hidden="true">😂</span> Smile Kit
+      </button>
+      <button type="button" class="nav-link" (click)="scrollToSection('md-motivation')">
+        <span aria-hidden="true">🩺</span> MD Motivation
+      </button>
+      <button type="button" class="nav-link" (click)="scrollToSection('compliments')">
+        <span aria-hidden="true">💌</span> Compliments
+      </button>
+      <button type="button" class="nav-link" (click)="scrollToSection('happiness-challenge')">
+        <span aria-hidden="true">🌈</span> 1% Better
+      </button>
+      <button type="button" class="nav-link" (click)="scrollToSection('joke-lab')">
+        <span aria-hidden="true">🧪</span> Joke Lab
+      </button>
+      <button type="button" class="nav-link nav-btn-highlight" (click)="scrollToSection('jay-note')">
+        <span aria-hidden="true">💌</span> Jay's Note
+      </button>
+    </nav>
+
+    <!-- Mobile Hamburger Button -->
+    <button
+      type="button"
+      class="mobile-menu-toggle"
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="hamburger-icon" [class.open]="isMobileMenuOpen()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer / Dropdown -->
+  @if (isMobileMenuOpen()) {
+    <div class="mobile-drawer animate-pop" role="dialog" aria-label="Mobile Navigation">
+      <nav class="mobile-nav-list">
+        <button type="button" class="mobile-nav-item" (click)="scrollToSection('home')">
+          <span class="item-icon">🏡</span>
+          <span>Home Dashboard</span>
+        </button>
+        <button type="button" class="mobile-nav-item" (click)="scrollToSection('smile-kit')">
+          <span class="item-icon">😂</span>
+          <span>Emergency Smile Kit</span>
+        </button>
+        <button type="button" class="mobile-nav-item" (click)="scrollToSection('md-motivation')">
+          <span class="item-icon">🩺</span>
+          <span>MD Exam Motivation & Timer</span>
+        </button>
+        <button type="button" class="mobile-nav-item" (click)="scrollToSection('compliments')">
+          <span class="item-icon">💗</span>
+          <span>Official Compliment Dept</span>
+        </button>
+        <button type="button" class="mobile-nav-item" (click)="scrollToSection('happiness-challenge')">
+          <span class="item-icon">🌈</span>
+          <span>Mission: Feel 1% Better</span>
+        </button>
+        <button type="button" class="mobile-nav-item" (click)="scrollToSection('joke-lab')">
+          <span class="item-icon">🧪</span>
+          <span>Jay's Joke Lab</span>
+        </button>
+        <button type="button" class="mobile-nav-item mobile-highlight" (click)="scrollToSection('jay-note')">
+          <span class="item-icon">💌</span>
+          <span>A Note From Jay</span>
+        </button>
+      </nav>
+    </div>
+  }
+</header>

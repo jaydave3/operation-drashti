@@ -1,0 +1,74 @@
+<section id="joke-lab" class="joke-lab-section section-padding">
+  <div class="container">
+    
+    <div class="section-head text-center">
+      <span class="section-badge">🧪 Science & Sarcasm</span>
+      <h2 class="section-title">Jay's Joke Lab — Clinical Trials Pending</h2>
+      <p class="section-subtitle">
+        Where questionable developer humor meets high-stress medical student life in a peer-reviewed experiment.
+      </p>
+    </div>
+
+    <div class="lab-card card-glass animate-pop">
+      
+      <div class="lab-header">
+        <span class="lab-flask-icon" aria-hidden="true">🧪</span>
+        <div class="trial-info">
+          <span class="trial-pill">Test Subject: Drashti's Sense of Humor</span>
+          <span class="trial-field">Field: {{ currentJoke().field }}</span>
+        </div>
+      </div>
+
+      <!-- Joke Display -->
+      <div class="joke-container">
+        <p class="setup-text">“{{ currentJoke().setup }}”</p>
+        
+        <div class="punchline-box animate-pop">
+          <span class="punchline-label">Finding / Punchline:</span>
+          <p class="punchline-text">{{ currentJoke().punchline }}</p>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="lab-action-row">
+        <button
+          type="button"
+          class="btn btn-primary next-trial-btn"
+          (click)="testRandomJoke()"
+        >
+          <span>Test Another Joke 🔬</span>
+        </button>
+      </div>
+
+      <!-- Silly 1–5 Rating Control -->
+      <div class="rating-section">
+        <div class="rating-prompt">
+          Submit Clinical Trial Rating (1 = terrible, 5 = certified funny):
+        </div>
+
+        <div class="star-rating-controls" role="radiogroup" aria-label="Joke Rating">
+          @for (star of [1, 2, 3, 4, 5]; track star) {
+            <button
+              type="button"
+              class="star-btn"
+              [class.selected]="selectedRating() !== null && star <= (selectedRating() || 0)"
+              (click)="rateJoke(star)"
+              [attr.aria-label]="'Rate ' + star + ' out of 5 stars'"
+            >
+              ★
+            </button>
+          }
+        </div>
+
+        <!-- Rating Feedback Message -->
+        @if (feedbackMessage()) {
+          <div class="rating-feedback animate-pop" role="status">
+            <span>{{ feedbackMessage() }}</span>
+          </div>
+        }
+      </div>
+
+    </div>
+
+  </div>
+</section>

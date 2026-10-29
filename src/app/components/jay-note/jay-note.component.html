@@ -1,0 +1,69 @@
+<section id="jay-note" class="jay-note-section section-padding">
+  <div class="container">
+    
+    <div class="section-head text-center">
+      <span class="section-badge">💌 Heart-to-Heart</span>
+      <h2 class="section-title">A Small Note From Your Friend 💌</h2>
+      <p class="section-subtitle">
+        Written with warmth, sincerity, and zero unsolicited advice.
+      </p>
+    </div>
+
+    <!-- Letter Stationery Envelope / Paper Card -->
+    <article class="letter-card card-glass animate-pop">
+      
+      <!-- Postage Stamp & Postmark Detail -->
+      <div class="letter-header">
+        <div class="postmark-group">
+          <div class="airmail-badge">FRIENDSHIP SPECIAL POST</div>
+          <div class="postmark-date">Destination: Drashti's Desk</div>
+        </div>
+        <div class="postage-stamp" aria-hidden="true">
+          <span class="stamp-icon">☕</span>
+          <span class="stamp-value">100% CARE</span>
+        </div>
+      </div>
+
+      <!-- Letter Content Body -->
+      <div class="letter-body">
+        <h3 class="letter-title">{{ currentNote().title }}</h3>
+
+        <div class="letter-paragraphs">
+          @for (paragraph of currentNote().body; track $index) {
+            <p class="letter-p">{{ paragraph }}</p>
+          }
+        </div>
+
+        <!-- Official Signoff Block -->
+        <div class="letter-signoff">
+          <div class="signoff-intro">Officially signed,</div>
+          <div class="signoff-signature">{{ currentNote().signoffName }}</div>
+          <div class="signoff-role">{{ currentNote().signoffTitle }}</div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="letter-actions">
+        <button
+          type="button"
+          class="btn btn-primary next-note-btn"
+          (click)="showNextSillyNote()"
+        >
+          <span>Send Me Another Silly Note 📬</span>
+        </button>
+
+        @if (!isInitialNote()) {
+          <button
+            type="button"
+            class="btn btn-secondary back-note-btn"
+            (click)="resetToInitial()"
+          >
+            <span>Back to Original Letter 💌</span>
+          </button>
+        }
+      </div>
+
+    </article>
+
+  </div>
+</section>

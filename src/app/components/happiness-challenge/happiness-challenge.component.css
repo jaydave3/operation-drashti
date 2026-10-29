@@ -1,0 +1,177 @@
+.challenge-section {
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-head .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mission-card {
+  max-width: 660px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.75rem, 5vw, 2.75rem);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Confetti particles */
+.celebration-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.particle {
+  position: absolute;
+  font-size: 1.6rem;
+  animation: floatPop 1.4s ease-out forwards;
+}
+
+.p-1 { top: 20%; left: 15%; animation-delay: 0.05s; }
+.p-2 { top: 15%; right: 20%; animation-delay: 0.15s; }
+.p-3 { bottom: 25%; left: 25%; animation-delay: 0.1s; }
+.p-4 { bottom: 30%; right: 18%; animation-delay: 0.2s; }
+.p-5 { top: 40%; left: 50%; animation-delay: 0.25s; }
+
+@keyframes floatPop {
+  0% {
+    transform: scale(0.2) translateY(20px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2) translateY(-40px);
+    opacity: 0;
+  }
+}
+
+.mission-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.mission-emoji {
+  font-size: 3.2rem;
+  line-height: 1;
+}
+
+.mission-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.category-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+}
+
+.completed-counter {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #276749;
+  background: var(--color-mint-light);
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+}
+
+.mission-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 0.75rem;
+}
+
+.mission-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto 1.75rem;
+}
+
+.reward-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-mint-light);
+  border: 1px solid #9AE6B4;
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.4rem;
+  text-align: left;
+  margin-bottom: 1.75rem;
+}
+
+.reward-sparkle {
+  font-size: 2rem;
+}
+
+.reward-heading {
+  display: block;
+  font-size: 1.02rem;
+  color: #22543D;
+  margin-bottom: 0.2rem;
+}
+
+.reward-text {
+  font-size: 0.92rem;
+  color: #276749;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.mission-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.complete-btn {
+  background: linear-gradient(135deg, var(--color-mint) 0%, #2F855A 100%);
+  box-shadow: 0 4px 14px rgba(72, 187, 120, 0.35);
+  font-size: 1rem;
+  padding: 0.8rem 1.6rem;
+}
+
+.complete-btn:hover {
+  box-shadow: 0 6px 20px rgba(72, 187, 120, 0.45);
+}
+
+.next-mission-btn {
+  font-size: 0.95rem;
+  padding: 0.8rem 1.4rem;
+}
+
+.zero-pressure-note {
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  line-height: 1.4;
+}

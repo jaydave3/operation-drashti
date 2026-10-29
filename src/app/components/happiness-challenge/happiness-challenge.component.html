@@ -1,0 +1,77 @@
+<section id="happiness-challenge" class="challenge-section section-padding">
+  <div class="container">
+    
+    <div class="section-head text-center">
+      <span class="section-badge">🌈 Micro-Steps</span>
+      <h2 class="section-title">Mission: Feel 1% Better</h2>
+      <p class="section-subtitle">
+        No 5-year plans. No high expectations. Just one tiny action right now that gives your mind a breath of fresh air.
+      </p>
+    </div>
+
+    <div class="mission-card card-glass animate-pop">
+
+      <!-- Celebration Floating Confetti Elements -->
+      @if (showCelebration()) {
+        <div class="celebration-particles" aria-hidden="true">
+          <span class="particle p-1">✨</span>
+          <span class="particle p-2">🎉</span>
+          <span class="particle p-3">🌸</span>
+          <span class="particle p-4">💖</span>
+          <span class="particle p-5">⭐</span>
+        </div>
+      }
+
+      <div class="mission-top">
+        <span class="mission-emoji" aria-hidden="true">{{ currentMission().emoji }}</span>
+        <div class="mission-badge-group">
+          <span class="category-pill">{{ currentMission().category }}</span>
+          @if (completedCount() > 0) {
+            <span class="completed-counter">Completed: {{ completedCount() }} 🌟</span>
+          }
+        </div>
+      </div>
+
+      <h3 class="mission-title">{{ currentMission().title }}</h3>
+      <p class="mission-desc">{{ currentMission().description }}</p>
+
+      <!-- Completion Reward Box -->
+      @if (isCompleted()) {
+        <div class="reward-box animate-pop" role="status">
+          <div class="reward-sparkle" aria-hidden="true">🎉</div>
+          <div class="reward-content">
+            <strong class="reward-heading">You did it! 1% lighter!</strong>
+            <p class="reward-text">{{ currentMission().rewardMessage }}</p>
+          </div>
+        </div>
+      }
+
+      <!-- Action Buttons -->
+      <div class="mission-actions">
+        @if (!isCompleted()) {
+          <button
+            type="button"
+            class="btn btn-primary complete-btn"
+            (click)="markCompleted()"
+          >
+            <span>I Did It! ✅</span>
+          </button>
+        }
+
+        <button
+          type="button"
+          class="btn btn-secondary next-mission-btn"
+          (click)="getRandomMission()"
+        >
+          <span>{{ isCompleted() ? 'Give Me Another 🎯' : 'Give Me a Tiny Mission 🎲' }}</span>
+        </button>
+      </div>
+
+      <div class="zero-pressure-note">
+        <span>Zero guilt zone: Skipping is completely allowed and 100% fine. You set the pace. ☕</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>

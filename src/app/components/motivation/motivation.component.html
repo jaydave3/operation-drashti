@@ -1,0 +1,109 @@
+<section id="md-motivation" class="motivation-section section-padding">
+  <div class="container">
+    
+    <div class="section-head text-center">
+      <span class="section-badge">🩺 Medical Excellence</span>
+      <h2 class="section-title">Future Doctor in Progress 🩺</h2>
+      <p class="section-subtitle">
+        One topic at a time. One page at a time. You don't need to conquer the entire syllabus today.
+      </p>
+    </div>
+
+    <!-- Motivational Quote Card -->
+    <div class="quote-card card-glass animate-pop">
+      <div class="quote-tag">
+        <span class="tag-badge">{{ currentMotivation().tag || 'Encouragement' }}</span>
+        <span class="stethoscope-icon" aria-hidden="true">🩺</span>
+      </div>
+
+      <blockquote class="motivation-quote">
+        “{{ currentMotivation().quote }}”
+      </blockquote>
+
+      <div class="quote-action">
+        <button
+          type="button"
+          class="btn btn-primary motivation-btn"
+          (click)="getRandomMotivation()"
+        >
+          <span>Give Me Today's Motivation ✨</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Two Column Grid: Focus Timer & Interactive Checklist -->
+    <div class="study-tools-grid">
+      
+      <!-- Column 1: Pomodoro Focus Timer -->
+      <div class="tool-column">
+        <div class="column-header">
+          <h3 class="tool-title">
+            <span aria-hidden="true">⏱️</span> 25-Minute Focus & Rest Timer
+          </h3>
+          <p class="tool-desc">
+            Clean, gentle intervals. Study without burnout, rest without guilt.
+          </p>
+        </div>
+        <app-focus-timer></app-focus-timer>
+      </div>
+
+      <!-- Column 2: Micro Study Checklist -->
+      <div class="tool-column">
+        <div class="column-header">
+          <h3 class="tool-title">
+            <span aria-hidden="true">📋</span> Gentle Study Flow Checklist
+          </h3>
+          <p class="tool-desc">
+            A small five-step guide to keep your study sessions grounded.
+          </p>
+        </div>
+
+        <div class="checklist-card">
+          <ul class="checklist-list" role="list">
+            @for (item of checklist(); track item.id) {
+              <li
+                class="checklist-item"
+                [class.checked]="item.completed"
+                (click)="toggleChecklistItem(item.id)"
+                role="checkbox"
+                [attr.aria-checked]="item.completed"
+                tabindex="0"
+                (keydown.space)="$event.preventDefault(); toggleChecklistItem(item.id)"
+                (keydown.enter)="toggleChecklistItem(item.id)"
+              >
+                <div class="custom-checkbox" aria-hidden="true">
+                  @if (item.completed) {
+                    <span>✓</span>
+                  }
+                </div>
+                <span class="checklist-text">{{ item.text }}</span>
+              </li>
+            }
+          </ul>
+
+          @if (allCompleted()) {
+            <div class="all-done-banner animate-pop">
+              <span class="trophy-icon">🏆</span>
+              <div>
+                <strong>Wonderful job, Drashti!</strong>
+                <p>You completed a full study cycle. High five! You deserve a moment of pure satisfaction.</p>
+              </div>
+            </div>
+          }
+
+          <div class="checklist-reset-wrap">
+            <button
+              type="button"
+              class="reset-link"
+              (click)="resetChecklist()"
+            >
+              Reset Checklist ↺
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

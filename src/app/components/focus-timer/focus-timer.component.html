@@ -1,0 +1,76 @@
+<div class="focus-timer-card">
+  <div class="timer-mode-selector">
+    <button
+      type="button"
+      class="mode-btn"
+      [class.active]="currentMode() === 'study'"
+      (click)="setMode('study')"
+    >
+      <span aria-hidden="true">📖</span> Study Session (25m)
+    </button>
+    <button
+      type="button"
+      class="mode-btn"
+      [class.active]="currentMode() === 'break'"
+      (click)="setMode('break')"
+    >
+      <span aria-hidden="true">☕</span> Refresh Break (5m)
+    </button>
+  </div>
+
+  <div class="timer-display-area" [class.break-mode]="currentMode() === 'break'">
+    <div class="mode-indicator">
+      @if (currentMode() === 'study') {
+        <span class="indicator-pill study-pill">📚 Study Mode Active</span>
+      } @else {
+        <span class="indicator-pill break-pill">☕ Break Mode Active</span>
+      }
+    </div>
+
+    <!-- Countdown Digits -->
+    <div class="countdown-text" aria-live="polite">
+      {{ formattedTime }}
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-fill" [style.width.%]="progressPercentage"></div>
+    </div>
+  </div>
+
+  <!-- Completion Notification -->
+  @if (completionMessage()) {
+    <div class="timer-complete-msg animate-pop" role="alert">
+      <span>{{ completionMessage() }}</span>
+    </div>
+  }
+
+  <!-- Timer Controls -->
+  <div class="timer-controls">
+    @if (!isRunning()) {
+      <button
+        type="button"
+        class="btn btn-primary control-btn"
+        (click)="startTimer()"
+      >
+        <span>Start Session ▶️</span>
+      </button>
+    } @else {
+      <button
+        type="button"
+        class="btn btn-secondary control-btn pause-btn"
+        (click)="pauseTimer()"
+      >
+        <span>Pause ⏸️</span>
+      </button>
+    }
+
+    <button
+      type="button"
+      class="btn btn-secondary control-btn"
+      (click)="resetTimer()"
+    >
+      <span>Reset 🔄</span>
+    </button>
+  </div>
+</div>

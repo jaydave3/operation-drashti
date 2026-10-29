@@ -1,0 +1,86 @@
+<section id="home" class="hero-section section-padding">
+  <div class="container">
+    
+    <!-- Hero Main Card -->
+    <div class="hero-card card-glass animate-pop">
+      <div class="hero-badge-wrap">
+        <span class="section-badge" (click)="cycleGreeting()" role="button" tabindex="0" title="Click to rotate greeting">
+          {{ funGreetings[currentGreetingIndex()] }}
+        </span>
+      </div>
+
+      <h1 class="hero-title">
+        Drashtiiii! Welcome to your personal happiness department. 🫡
+      </h1>
+
+      <p class="hero-subtitle">
+        Officially prescribed: a little laughter, a little confidence, and a lot of self-care.
+      </p>
+
+      <div class="creator-tag">
+        <span class="creator-icon">💻</span>
+        <span>Made with code, care, and questionable jokes by Jay</span>
+      </div>
+
+      <div class="friendly-note-box">
+        <div class="note-quote-mark" aria-hidden="true">“</div>
+        <p class="friendly-note-text">
+          Some days feel heavier than others. You don't have to fix everything today. Take a breath, give yourself a little kindness, and take one small step at a time. You're doing better than you think.
+        </p>
+      </div>
+
+      <div class="hero-cta-group">
+        <button
+          type="button"
+          class="btn btn-blush hero-main-btn"
+          (click)="scrollToSection('activities')"
+        >
+          <span>Okay, Make Me Smile! ✨</span>
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-secondary hero-sec-btn"
+          (click)="scrollToSection('jay-note')"
+        >
+          <span>Read Note From Jay 💌</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Activities Section Anchors & 4 Interactive Cards -->
+    <div id="activities" class="cards-section">
+      <div class="cards-header">
+        <span class="section-badge">✨ Your Care Package</span>
+        <h2 class="section-title">Pick Your Smile Flavor</h2>
+        <p class="section-subtitle">
+          Whether you need a quick study break, a hearty laugh, or a reminder that you're extraordinary, choose your path below:
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        @for (card of features; track card.title) {
+          <article class="feature-card card-glass" (click)="scrollToSection(card.targetId)">
+            <div class="card-top">
+              <span class="card-emoji" aria-hidden="true">{{ card.emoji }}</span>
+              <span class="card-pill">{{ card.badge }}</span>
+            </div>
+            <h3 class="card-title">{{ card.title }}</h3>
+            <p class="card-desc">{{ card.description }}</p>
+            <div class="card-action">
+              <button
+                type="button"
+                class="btn btn-secondary card-btn"
+                (click)="scrollToSection(card.targetId); $event.stopPropagation()"
+              >
+                <span>{{ card.btnLabel }}</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,101 @@
+<div class="gate-overlay" [class.unlocked-anim]="isSuccess()">
+  <div class="floating-bubble bubble-1" aria-hidden="true">🌸</div>
+  <div class="floating-bubble bubble-2" aria-hidden="true">✨</div>
+  <div class="floating-bubble bubble-3" aria-hidden="true">🩺</div>
+  <div class="floating-bubble bubble-4" aria-hidden="true">💗</div>
+
+  <main class="gate-card card-glass animate-pop" role="region" aria-label="Security Gate">
+    <div class="gate-header">
+      <div class="gate-icon" aria-hidden="true">
+        @if (isSuccess()) {
+          <span class="icon-unlocked">🎉</span>
+        } @else {
+          <span class="icon-locked">💌</span>
+        }
+      </div>
+      <h1 class="gate-title">Hey Drashti! 👀</h1>
+      <p class="gate-subtitle">Someone has prepared a tiny surprise for you.</p>
+      <p class="gate-question-hint">Before you enter, answer one very important security question.</p>
+    </div>
+
+    <div class="gate-form">
+      <!-- Only One Field: Secret Code -->
+      <div class="form-group">
+        <label for="passcode-input" class="form-label">
+          Secret Code 🔐
+        </label>
+        <div class="input-wrapper">
+          <input
+            id="passcode-input"
+            [type]="showPasscode() ? 'text' : 'password'"
+            [(ngModel)]="passcode"
+            (input)="passcode = $any($event.target).value"
+            name="passcode"
+            class="form-input"
+            placeholder="Enter your secret code..."
+            autocomplete="off"
+            required
+            [disabled]="isSuccess()"
+            (keydown.enter)="onSubmit()"
+          />
+          <button
+            type="button"
+            class="toggle-visibility-btn"
+            (click)="togglePasscodeVisibility()"
+            [attr.aria-label]="showPasscode() ? 'Hide code' : 'Show code'"
+            title="Toggle visibility"
+          >
+            {{ showPasscode() ? '🙈' : '👁️' }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Friendly Inline Error Message -->
+      @if (errorMessage()) {
+        <div class="inline-error animate-pop" role="alert">
+          <span class="error-icon" aria-hidden="true">⚠️</span>
+          <span>{{ errorMessage() }}</span>
+        </div>
+      }
+
+      <!-- Success Indicator -->
+      @if (isSuccess()) {
+        <div class="inline-success animate-pop" role="status">
+          <span aria-hidden="true">✨</span>
+          <span>Identity verified! Opening Drashti's smile portal...</span>
+        </div>
+      }
+
+      <!-- Submit Button -->
+      <button
+        type="button"
+        (click)="onSubmit()"
+        class="btn btn-primary submit-btn"
+        [disabled]="isSuccess()"
+      >
+        @if (isSuccess()) {
+          <span>Unlocked! Entering... 🎉</span>
+        } @else {
+          <span>Unlock Your Smile 🔓</span>
+        }
+      </button>
+
+      <!-- Gentle Hint Toggle (Riddle without giving away raw numbers) -->
+      <div class="hint-section">
+        <button
+          type="button"
+          class="hint-btn"
+          (click)="toggleHint()"
+          [attr.aria-expanded]="showHint()"
+        >
+          {{ showHint() ? 'Hide Little Hint 💡' : 'Need a little hint? 💡' }}
+        </button>
+        @if (showHint()) {
+          <p class="hint-text animate-pop">
+            {{ hintText }}
+          </p>
+        }
+      </div>
+    </div>
+  </main>
+</div>

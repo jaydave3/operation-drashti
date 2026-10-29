@@ -1,0 +1,275 @@
+/* ==========================================================================
+   OPERATION DRASHTI 💗 — DESIGN SYSTEM & GLOBAL STYLES
+   A soft, warm, friendly digital care package & smile sanctuary
+   ========================================================================== */
+
+:root {
+  /* Color Palette: Lavender, Blush Pink, Cream, Pastel Purple & Warm Accents */
+  --color-bg: #FAF7FC;
+  --color-bg-alt: #F3EDF9;
+  --color-surface: #FFFFFF;
+  --color-surface-translucent: rgba(255, 255, 255, 0.88);
+  --color-surface-hover: #FDFBFF;
+  
+  --color-primary: #9C6ADE;
+  --color-primary-light: #F2ECFB;
+  --color-primary-dark: #7A45C2;
+  --color-primary-rgb: 156, 106, 222;
+
+  --color-blush: #FF85A2;
+  --color-blush-light: #FFF0F4;
+  --color-blush-dark: #E25077;
+  
+  --color-lavender: #E8DEFC;
+  --color-mint: #48BB78;
+  --color-mint-light: #EBFBF3;
+  --color-amber: #ED8936;
+  --color-amber-light: #FFF7ED;
+  --color-teal: #319795;
+  --color-teal-light: #E6FFFA;
+  
+  --color-text-main: #2D2738;
+  --color-text-muted: #6B617B;
+  --color-text-light: #9B91AB;
+  
+  --color-border: #E8DEFC;
+  --color-border-subtle: #F0E8F8;
+  --color-danger: #E53E3E;
+  --color-danger-light: #FFF5F5;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4.5rem;
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  /* Soft Gentle Shadows */
+  --shadow-sm: 0 2px 6px rgba(133, 90, 196, 0.06);
+  --shadow-md: 0 8px 24px rgba(133, 90, 196, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 16px 36px rgba(133, 90, 196, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-glow: 0 0 24px rgba(255, 133, 162, 0.35);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* CSS Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(232, 222, 252, 0.5) 0%, transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(255, 240, 244, 0.6) 0%, transparent 45%);
+  background-attachment: fixed;
+}
+
+/* Base Accessibility & Focus */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  touch-action: manipulation;
+}
+
+/* General Layout Containers */
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+}
+
+.section-padding {
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+/* Section Header Typography */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin-bottom: 1.75rem;
+}
+
+/* Reusable Interactive Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  min-height: 44px; /* Touch target minimum */
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  user-select: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(156, 106, 222, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(156, 106, 222, 0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-alt);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.btn-blush {
+  background: linear-gradient(135deg, var(--color-blush) 0%, var(--color-blush-dark) 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(255, 133, 162, 0.35);
+}
+
+.btn-blush:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 133, 162, 0.45);
+}
+
+/* Card Base */
+.card-glass {
+  background: var(--color-surface-translucent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* Floating Animations */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-pop {
+  animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Reduced Motion Mode for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

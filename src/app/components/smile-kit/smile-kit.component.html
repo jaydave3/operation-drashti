@@ -1,0 +1,88 @@
+<section id="smile-kit" class="smile-section section-padding">
+  <div class="container">
+    <div class="section-head text-center">
+      <span class="section-badge">😂 Prescription Nonsense</span>
+      <h2 class="section-title">Emergency Smile Kit</h2>
+      <p class="section-subtitle">
+        Scientifically calibrated to disrupt overthinking, exam tension, and unnecessary seriousness with 100% organic silliness.
+      </p>
+    </div>
+
+    <!-- Main Prescription Card -->
+    <div class="prescription-card card-glass">
+      
+      <div class="prescription-header">
+        <div class="rx-symbol">℞</div>
+        <div class="rx-details">
+          <div class="rx-patient"><strong>Patient:</strong> Dr. Drashti (Future MD)</div>
+          <div class="rx-dosage"><strong>Dosage:</strong> One giggle whenever life gets dramatic</div>
+        </div>
+        <div class="rx-category-badge">
+          {{ currentJoke().category || 'General Nonsense' }}
+        </div>
+      </div>
+
+      <div class="prescription-body">
+        <div class="joke-display animate-pop" [attr.data-id]="currentJoke().id">
+          <p class="joke-text">{{ currentJoke().text }}</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="prescription-actions">
+        <button
+          type="button"
+          class="btn btn-primary prescribe-btn"
+          (click)="prescribeRandomJoke()"
+        >
+          <span>Doctor, prescribe me some nonsense! 💊</span>
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-secondary funnier-btn"
+          (click)="prescribeRandomJoke()"
+        >
+          <span>Make It Funnier 🔄</span>
+        </button>
+      </div>
+
+      <!-- Relatable Reactions -->
+      <div class="reactions-wrapper">
+        <div class="reactions-title">How was the dosage?</div>
+        <div class="reaction-buttons">
+          <button
+            type="button"
+            class="reaction-btn laugh-btn"
+            (click)="onLaughReaction()"
+            title="Rate as ridiculous"
+          >
+            <span>😂 This was ridiculous</span>
+            @if (laughCount() > 0) {
+              <span class="count-bubble">{{ laughCount() }}</span>
+            }
+          </button>
+
+          <button
+            type="button"
+            class="reaction-btn eyeroll-btn"
+            (click)="onEyeRollReaction()"
+            title="Rate as needing improvement"
+          >
+            <span>🙄 Jay needs better jokes</span>
+            @if (eyeRollCount() > 0) {
+              <span class="count-bubble">{{ eyeRollCount() }}</span>
+            }
+          </button>
+        </div>
+
+        @if (reactionFeedback()) {
+          <div class="reaction-feedback animate-pop" role="status">
+            <span>✨ {{ reactionFeedback() }}</span>
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

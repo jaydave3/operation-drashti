@@ -1,0 +1,57 @@
+<section id="compliments" class="compliment-section section-padding">
+  <div class="container">
+    
+    <div class="section-head text-center">
+      <span class="section-badge">💗 Affirmations</span>
+      <h2 class="section-title">Official Compliment Department</h2>
+      <p class="section-subtitle">
+        Because sometimes your brain needs a reminder of what is already true.
+      </p>
+    </div>
+
+    <div class="compliment-card card-glass animate-pop">
+      
+      <div class="card-decor-seal" aria-hidden="true">💌</div>
+
+      <div class="card-header-badge">
+        <span class="badge-text">{{ currentCompliment().badge || 'Daily Truth' }}</span>
+        <span class="batch-num">Reminder #{{ currentCompliment().id }}</span>
+      </div>
+
+      <div class="compliment-quote-box">
+        <p class="compliment-text">
+          “{{ currentCompliment().text }}”
+        </p>
+      </div>
+
+      <div class="action-row">
+        <button
+          type="button"
+          class="btn btn-blush compliment-btn"
+          (click)="getNextCompliment()"
+        >
+          <span>Give Me a Compliment 💌</span>
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-secondary copy-btn"
+          (click)="copyCompliment()"
+          title="Save this reminder"
+        >
+          @if (copied()) {
+            <span>Copied to heart! ✨</span>
+          } @else {
+            <span>Save Reminder 📋</span>
+          }
+        </button>
+      </div>
+
+      <div class="friendly-disclaimer">
+        <span>* No strings attached, no hidden expectations. Just honest appreciation from a friend.</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,202 @@
+.hero-section {
+  position: relative;
+}
+
+.hero-card {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 3.5rem;
+  padding: clamp(2rem, 5vw, 3.25rem);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(232, 222, 252, 0.8);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.hero-badge-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.hero-badge-wrap .section-badge {
+  cursor: pointer;
+  user-select: none;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.hero-badge-wrap .section-badge:hover {
+  transform: scale(1.02);
+  background: var(--color-lavender);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-text-main);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  max-width: 650px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.45;
+}
+
+.creator-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.friendly-note-box {
+  position: relative;
+  background: linear-gradient(135deg, rgba(242, 236, 251, 0.6) 0%, rgba(255, 240, 244, 0.6) 100%);
+  border: 1px dashed var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.75rem;
+  margin: 0 auto 2.25rem;
+  max-width: 680px;
+  text-align: left;
+}
+
+.note-quote-mark {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.35;
+  font-family: serif;
+}
+
+.friendly-note-text {
+  font-size: 1.02rem;
+  color: var(--color-text-main);
+  line-height: 1.6;
+  font-weight: 450;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero-main-btn {
+  font-size: 1.05rem;
+  padding: 0.85rem 1.75rem;
+}
+
+.hero-sec-btn {
+  font-size: 1.02rem;
+  padding: 0.85rem 1.5rem;
+}
+
+/* Feature Cards Grid */
+.cards-section {
+  padding-top: 1rem;
+}
+
+.cards-header {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.cards-header .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.card-emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.card-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.4rem;
+  flex-grow: 1;
+}
+
+.card-action {
+  margin-top: auto;
+}
+
+.card-btn {
+  width: 100%;
+  font-size: 0.88rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-bg);
+}
+
+.feature-card:hover .card-btn {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary);
+}

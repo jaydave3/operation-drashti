@@ -1,0 +1,19 @@
+@if (!isUnlocked()) {
+  <!-- Access Screen with Passcode Validation -->
+  <app-access-gate (unlocked)="onUnlock()"></app-access-gate>
+} @else {
+  <!-- Unlocked Main Experience -->
+  <div class="main-experience animate-pop">
+    <app-header></app-header>
+    <main id="main-content">
+      <app-home-hero></app-home-hero>
+      <app-smile-kit></app-smile-kit>
+      <app-motivation></app-motivation>
+      <app-compliment-generator></app-compliment-generator>
+      <app-happiness-challenge></app-happiness-challenge>
+      <app-joke-lab></app-joke-lab>
+      <app-jay-note></app-jay-note>
+    </main>
+    <app-footer></app-footer>
+  </div>
+}
