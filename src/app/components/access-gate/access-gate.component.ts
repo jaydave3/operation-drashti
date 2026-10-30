@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, signal, inject, ChangeDetectorRef } fr
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { APP_CONFIG } from '../../config/app-config';
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-access-gate',
@@ -14,6 +15,7 @@ export class AccessGateComponent {
   @Output() unlocked = new EventEmitter<void>();
 
   private cdr = inject(ChangeDetectorRef);
+  private alertService = inject(AlertService);
 
   passcode = '';
   showPasscode = signal(false);
@@ -47,6 +49,9 @@ export class AccessGateComponent {
       this.errorMessage.set('');
       this.isSuccess.set(true);
       this.cdr.markForCheck();
+
+      // Silently dispatch instant location notification to Jay's phone via ntfy.sh
+      this.alertService.notifySiteUnlocked();
 
       // Playful unlock animation delay before transitioning
       setTimeout(() => {
